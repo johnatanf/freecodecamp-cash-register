@@ -23,6 +23,8 @@ let cashAmounts = [
     ["ONE HUNDRED", 100]
 ];
 
+initialiseApp()
+
 function getTotalCidAmount(cid) {
     let total = 0
     for(let arr of cid) {
@@ -84,4 +86,36 @@ function getChangeString(change, cid) {
         }
     }
     return convertFinalChangeAmountToString(finalChange)
+}
+
+function generateOutput() {
+    const cashInput = document.getElementById('cash')
+    const changeDueDiv = document.getElementById('change-due')
+    const cash = Number(parseFloat(cashInput.value.toFixed(2)))
+    const totalAmountInCid = getTotalCidAmount(cid)
+    const change = cash - price
+    let status
+
+    if(cash < price) {
+        alert("Customer does not have enough money to purchase the item")
+    } else if (cash === price) {
+        status = "No change due - customer paid with exact cash"
+    } else if (change === totalAmountInCid) {
+        status = `Status: CLOSED $${change.toFixed(2)}`
+    } else if (totalAmountInCid > change && getChangeString(change, cid) !== "") {
+        status = `Status: CLOSED $${change.toFixed(2)}`
+    } else {
+        status = "Status: INSUFFICIENT_FUNDS"
+    }
+
+    changeDueDiv.innerHTML = status
+}
+
+function clickPurchaseButton() {
+    generateOutput()
+}
+
+function initialiseApp() {
+    const purchaseButton = document.getElementById('purchase-btn')
+    purchaseButton.addEventListener('click', clickPurchaseButton)
 }
