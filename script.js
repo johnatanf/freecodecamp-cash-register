@@ -41,6 +41,18 @@ function getLargestAvailableCashAmountIndex(change, cashAmounts, cid) {
     return null // in case smallest amount i.e. pennies are not available
 }
 
+function convertFinalChangeAmountToString(arr) {
+    let finalString = ""
+
+    for(let i = arr.length - 1; i >= 0; i--) { //start from highest index
+        if(arr[i][1] > 0) {
+            finalString += `${arr[i][0]}: $${arr[i][1]} `
+        }
+    }
+
+    return finalString.trim()
+}
+
 function getChangeString(change, cid) {
     let remainingChange = change
     let finalChange = [
@@ -54,7 +66,6 @@ function getChangeString(change, cid) {
         ["TWENTY", 0],
         ["ONE HUNDRED", 0]
     ]
-    let finalChangeString = ""
     let currentCashAmount = null
     let currentCashAmountIndex = null
 
@@ -72,6 +83,5 @@ function getChangeString(change, cid) {
             return "" // cannot make exact change
         }
     }
-    finalChangeString = finalChange
-    return finalChangeString
+    return convertFinalChangeAmountToString(finalChange)
 }
