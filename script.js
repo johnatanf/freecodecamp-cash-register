@@ -55,8 +55,14 @@ function convertFinalChangeAmountToString(arr) {
     return finalString.trim()
 }
 
+function deepCopy(arr) {
+    return arr.map(item => Array.isArray(item) ? deepCopy(item) : item);
+}
+
 function getChangeString(change, cid) {
     let remainingChange = change
+    let copyCid = deepCopy(cid)
+    console.log(copyCid)
     let finalChange = [
         ["PENNY", 0],
         ["NICKEL", 0],
@@ -72,13 +78,13 @@ function getChangeString(change, cid) {
     let currentCashAmountIndex = null
 
     while(remainingChange > 0) {
-        currentCashAmountIndex = getLargestAvailableCashAmountIndex(remainingChange, cashAmounts, cid)
+        currentCashAmountIndex = getLargestAvailableCashAmountIndex(remainingChange, cashAmounts, copyCid)
 
         if(currentCashAmountIndex !== null) {
             currentCashAmount = cashAmounts[currentCashAmountIndex][1]
 
             remainingChange = Number(parseFloat(remainingChange - currentCashAmount).toFixed(2))
-            cid[currentCashAmountIndex][1] = Number(parseFloat(cid[currentCashAmountIndex][1] - currentCashAmount).toFixed(2))
+            copyCid[currentCashAmountIndex][1] = Number(parseFloat(copyCid[currentCashAmountIndex][1] - currentCashAmount).toFixed(2))
             finalChange[currentCashAmountIndex][1] = Number(parseFloat(finalChange[currentCashAmountIndex][1] + currentCashAmount).toFixed(2))
 
         } else {
