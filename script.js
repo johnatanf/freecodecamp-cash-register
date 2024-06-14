@@ -91,7 +91,7 @@ function getChangeString(change, cid) {
 function generateOutput() {
     const cashInput = document.getElementById('cash')
     const changeDueDiv = document.getElementById('change-due')
-    const cash = Number(parseFloat(cashInput.value.toFixed(2)))
+    const cash = Number(parseFloat(cashInput.value).toFixed(2))
     const totalAmountInCid = getTotalCidAmount(cid)
     const change = cash - price
     let status
@@ -101,9 +101,9 @@ function generateOutput() {
     } else if (cash === price) {
         status = "No change due - customer paid with exact cash"
     } else if (change === totalAmountInCid) {
-        status = `Status: CLOSED $${change.toFixed(2)}`
+        status = `Status: CLOSED ${getChangeString(change, cid)}`
     } else if (totalAmountInCid > change && getChangeString(change, cid) !== "") {
-        status = `Status: CLOSED $${change.toFixed(2)}`
+        status = `Status: OPEN ${getChangeString(change, cid)}`
     } else {
         status = "Status: INSUFFICIENT_FUNDS"
     }
