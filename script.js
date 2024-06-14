@@ -32,7 +32,7 @@ function getTotalCidAmount(cid) {
 }
 
 function getLargestAvailableCashAmountIndex(change, cashAmounts, cid) {    
-    for(let i = cashAmounts.length - 1; i > 0; i--) { //start from highest index
+    for(let i = cashAmounts.length - 1; i >= 0; i--) { //start from highest index
         if(cashAmounts[i][1] <= change && cid[i][1] > 0) { // if a current cash amount is smaller than or equal to change, and is available in cid
             return i
         }
