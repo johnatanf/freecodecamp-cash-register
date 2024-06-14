@@ -10,3 +10,11 @@ let cid = [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ];
+
+function getTotalCidAmount(cid) {
+    let total = 0
+    for(let arr of cid) {
+        total += arr[1] // index 1, the total amount of a cash amount
+    }
+    return Number(total.toFixed(2))
+}
