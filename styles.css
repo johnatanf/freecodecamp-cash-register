@@ -23,11 +23,13 @@ label {
 
 input {
     padding: 5px;
+    font-size: 1.25rem;
 }
 
 .btn {
     padding: 5px;
     border-radius: 5px;
+    font-size: 1.25rem;
 }
 
 .change-in-drawer-heading {
@@ -58,6 +60,7 @@ input {
     color: rgb(255, 255, 255);
     box-sizing: border-box;
     width: 80vw;
+    max-width: 600px;
     margin: 0 auto;
     margin-top: 20px;
     padding: 10px 20px;
@@ -65,4 +68,14 @@ input {
     flex-direction: column;
     gap: 10px;
     border-radius: 5px;
+}
+
+@media screen and (min-width: 500px) {
+    html {
+        font-size: 14px;
+    }
+
+    #app-container {
+        gap: 20px;
+    }
 }
