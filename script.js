@@ -98,7 +98,7 @@ function generateOutput() {
     const changeDueDiv = document.getElementById('change-due')
     const cash = Number(parseFloat(cashInput.value).toFixed(2))
     const totalAmountInCid = getTotalCidAmount(cid)
-    const change = cash - price
+    const change = Number(parseFloat(cash - price).toFixed(2))
     let status
 
     if(cash < price) {
