@@ -123,5 +123,10 @@ function clickPurchaseButton() {
 
 function initialiseApp() {
     const purchaseButton = document.getElementById('purchase-btn')
+    const total = document.getElementById('total')
+    const changeInDrawerList = document.getElementById('change-in-drawer-list')
+
     purchaseButton.addEventListener('click', clickPurchaseButton)
+    total.innerHTML = `Price: $${price}`
+    changeInDrawerList.innerHTML = convertFinalChangeAmountToString(cid)
 }
