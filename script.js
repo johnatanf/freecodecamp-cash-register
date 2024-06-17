@@ -48,7 +48,7 @@ function convertFinalChangeAmountToString(arr) {
 
     for(let i = arr.length - 1; i >= 0; i--) { //start from highest index
         if(arr[i][1] > 0) {
-            finalString += `${arr[i][0]}: $${arr[i][1]} `
+            finalString += `${arr[i][0]}: $${arr[i][1]}\n`
         }
     }
 
@@ -107,9 +107,9 @@ function generateOutput() {
     } else if (cash === price) {
         status = "No change due - customer paid with exact cash"
     } else if (change === totalAmountInCid) {
-        status = `Status: CLOSED ${getChangeString(change, cid)}`
+        status = `Status: CLOSED\n${getChangeString(change, cid)}`
     } else if (totalAmountInCid > change && getChangeString(change, cid) !== "") {
-        status = `Status: OPEN ${getChangeString(change, cid)}`
+        status = `Status: OPEN\n${getChangeString(change, cid)}`
     } else {
         status = "Status: INSUFFICIENT_FUNDS"
     }
