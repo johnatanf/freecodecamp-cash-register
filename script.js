@@ -62,7 +62,6 @@ function deepCopy(arr) {
 function getChangeString(change, cid) {
     let remainingChange = change
     let copyCid = deepCopy(cid)
-    console.log(copyCid)
     let finalChange = [
         ["PENNY", 0],
         ["NICKEL", 0],
