@@ -1,7 +1,68 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    padding-top: 100px;
+}
+
+p {
+    font-size: 1.25rem;
+}
+
+label {
+    font-size: 1.25rem;
+}
+
+input {
+    padding: 5px;
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.change-in-drawer-heading {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#change-due {
+    border-top: 1px solid rgb(255, 255, 255);
+    padding-top: 10px;
+}
+
 #change-in-drawer-list {
     white-space: pre-wrap;
 }
 
 #change-due {
     white-space: pre-wrap;
+}
+
+#app-heading {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#app-container {
+    background: rgb(34, 34, 34);
+    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
 }
